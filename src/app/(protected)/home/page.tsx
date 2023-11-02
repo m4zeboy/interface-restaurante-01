@@ -1,10 +1,8 @@
 import Balance from '../components/balance'
+import DishOfTheDay from '../components/dish-of-the-day'
 import Header from '../components/header'
 import PurchaseButton from '../components/purchase-button'
-
-// import DishOfTheDay from '../components/dish-of-the-day'
-// import PurchasesHistory from '../components/purchases-history'
-// import PurchaseButton from '../components/purchase-button'
+import PurchasesHistory from '../components/purchases-history'
 
 export default function Protected() {
   return (
@@ -14,8 +12,7 @@ export default function Protected() {
         <section className="pt-1 px-5 pb-4">
           <div className="relative w-full">
             <div className="absolute w-full h-full top-4 left-4">
-              <p>RU Digital</p>
-              <p>2023.XXXX.XXX-X</p>
+              <p className="font-semibold text-gray-400">RU Digital</p>
             </div>
             <div className="border border-slate-300 rounded-md overflow-hidden shadow-lg">
               <svg
@@ -143,9 +140,9 @@ export default function Protected() {
           </div>
         </section>
         <Balance></Balance>
-        {/* <DishOfTheDay></DishOfTheDay> */}
+        <DishOfTheDay></DishOfTheDay>
 
-        {/* <PurchasesHistory></PurchasesHistory> */}
+        <PurchasesHistory></PurchasesHistory>
         <div className="py-8"></div>
         <PurchaseButton></PurchaseButton>
       </main>

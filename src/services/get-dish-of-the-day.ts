@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '@/constants/api-base-url'
 import { parseCookies } from 'nookies'
+import { api } from './api'
 
 type Dish = {
   id: string
@@ -19,11 +20,16 @@ type GetDishOfTheDayResponse = {
 export async function getDishOfTheDay() {
   const { 'restaurant-digital-token': token } = parseCookies()
 
-  const response = await fetch(`${API_BASE_URL}/dishes/today`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-  const data = (await response.json()) as GetDishOfTheDayResponse
-  return data
+  try {
+    const response = await api('/dishes/today', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    response.data as GetDishOfTheDayResponse
+    return response
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
 }
