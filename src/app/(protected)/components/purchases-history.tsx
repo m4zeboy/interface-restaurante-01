@@ -36,15 +36,21 @@ export default async function PurchasesHistory() {
           <h2 className="uppercase text-xs font-semibold">
             Histórico de compras
           </h2>
-          <ul>
-            {response.data.purchasedTickets?.map((ticket: Ticket) => {
-              return (
-                <li key={ticket.id}>
-                  <TicketItem ticket={ticket}></TicketItem>
-                </li>
-              )
-            })}
-          </ul>
+          {response.data.purchasedTickets.length === 0 ? (
+            <p className="mt-2 text-slate-400">
+              Você ainda não comprou nenhuma ficha
+            </p>
+          ) : (
+            <ul>
+              {response.data.purchasedTickets?.map((ticket: Ticket) => {
+                return (
+                  <li key={ticket.id}>
+                    <TicketItem ticket={ticket}></TicketItem>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
         </section>
       </div>
     )
