@@ -1,6 +1,7 @@
 import { getTicket } from '@/services/get-ticket'
 import { AxiosError } from 'axios'
 import { Toaster, toast } from 'sonner'
+import { QRCodeWrapper } from '../components/qr-code-wrapper'
 
 interface TicketParams {
   params: {
@@ -11,10 +12,13 @@ interface TicketParams {
 export default async function Ticket(props: TicketParams) {
   try {
     const response = await getTicket({ id: props.params.id })
-    const { ticket } = response.data
+    const { ticket } = response.data.ticket
+    console.log(ticket)
     return (
       <div className="px-4 py-3">
-        <div>qr code</div>
+        <div>
+          <QRCodeWrapper></QRCodeWrapper>
+        </div>
         <ul>
           <li className="border-b-2 border-b-gray-200 p-1 flex justify-between">
             <span className="text-xs text-gray-400">ID</span>
@@ -29,7 +33,7 @@ export default async function Ticket(props: TicketParams) {
           <li className="border-b-2 border-b-gray-200 p-1 flex justify-between">
             <span className="text-xs text-gray-400">Valor</span>
             <span className="text-xs font-semibold">
-              {new Intl.NumberFormat('pt-BR', {
+              {new Intl.NumberFormat('pt-br', {
                 style: 'currency',
                 currency: 'BRL',
               }).format(ticket.price)}

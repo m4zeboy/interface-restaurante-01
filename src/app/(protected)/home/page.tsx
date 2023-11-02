@@ -1,7 +1,6 @@
-
-import Balance from "../components/balance";
-import Header from "../components/header";
-import PurchaseButton from "../components/purchase-button";
+import Balance from '../components/balance'
+import Header from '../components/header'
+import PurchaseButton from '../components/purchase-button'
 
 // import DishOfTheDay from '../components/dish-of-the-day'
 // import PurchasesHistory from '../components/purchases-history'
