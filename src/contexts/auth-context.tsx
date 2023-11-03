@@ -18,7 +18,7 @@ type SignInType = {
 
 type AuthContextType = {
   isAuthenticated: boolean
-  signIn: (data: SignInType) => Promise<any>
+  signIn: (data: SignInType) => Promise<void>
   user: User | null
 }
 

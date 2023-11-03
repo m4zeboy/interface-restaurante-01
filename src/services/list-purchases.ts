@@ -1,7 +1,5 @@
-import { API_BASE_URL } from '@/constants/api-base-url'
 import { TOKEN_NAME } from '@/constants/token'
 import { cookies } from 'next/headers'
-import { parseCookies } from 'nookies'
 import { api } from './api'
 
 export type Ticket = {
@@ -13,7 +11,6 @@ export type Ticket = {
 }
 
 export async function listPurchases() {
-  // const { 'restaurant-digital-token': token } = parseCookies()
   const token = cookies().get(TOKEN_NAME)
   const response = await api('/tickets/purchases', {
     headers: {
@@ -21,7 +18,6 @@ export async function listPurchases() {
       'Content-Type': 'application/json',
     },
   })
-  // const data = (await response.json()) as ListPurchasesResponse
   response.data as { purchsaedTickets: Ticket[] }
   return response
 }

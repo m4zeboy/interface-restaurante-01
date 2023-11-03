@@ -1,7 +1,7 @@
 import { API_BASE_URL } from '@/constants/api-base-url'
 import { parseCookies } from 'nookies'
 
-type RegisterRequestBody = {
+export type RegisterRequestBody = {
   name: string
   passport: string
   password: string

@@ -7,8 +7,7 @@ import { Toaster, toast } from 'sonner'
 export function RegisterForm() {
   const { register, handleSubmit } = useForm()
   const router = useRouter()
-  async function handleRegister(data) {
-    console.log(data)
+  async function handleRegister(data: any) {
     try {
       await createUser(data)
       toast.success('Usuário criado com sucesso.')

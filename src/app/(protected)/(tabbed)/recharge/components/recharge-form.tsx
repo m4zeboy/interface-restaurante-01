@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 export default function RechargeForm() {
   const { register, handleSubmit, reset } = useForm()
   const router = useRouter()
-  async function handleRecharge(data) {
+  async function handleRecharge(data: any) {
     await recharge({ amount: data.amount })
     reset()
     toast.success('Recarga efetuada com sucesso!')

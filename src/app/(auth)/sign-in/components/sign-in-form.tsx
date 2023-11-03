@@ -8,7 +8,7 @@ import { Toaster, toast } from 'sonner'
 export function SignInForm() {
   const { register, handleSubmit } = useForm()
   const { signIn } = useContext(AuthContext)
-  async function handleSignIn(data) {
+  async function handleSignIn(data: any) {
     try {
       await signIn(data)
     } catch (error) {

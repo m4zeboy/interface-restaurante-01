@@ -9,7 +9,7 @@ export default function Page() {
   const [showButton, setShowButton] = useState(false)
   const [ticketId, setTicketId] = useState('')
 
-  async function handleScan(result, error) {
+  async function handleScan(result: any, error: any) {
     if (result) {
       setTicketId(result?.text)
       setShowButton(true)
