@@ -3,6 +3,7 @@ import DishOfTheDay from '../components/dish-of-the-day'
 import Header from '../components/header'
 import PurchaseButton from '../components/purchase-button'
 import PurchasesHistory from '../components/purchases-history'
+import ValidateButton from '../components/validate-button'
 
 export default function Protected() {
   return (
@@ -144,7 +145,12 @@ export default function Protected() {
 
         <PurchasesHistory></PurchasesHistory>
         <div className="py-8"></div>
-        <PurchaseButton></PurchaseButton>
+        <div className="fixed bottom-0 left-0 right-0">
+          <div className="max-w-[393px] p-4 mx-auto backdrop-blur-lg flex gap-4">
+            <PurchaseButton></PurchaseButton>
+            <ValidateButton></ValidateButton>
+          </div>
+        </div>
       </main>
     </div>
   )

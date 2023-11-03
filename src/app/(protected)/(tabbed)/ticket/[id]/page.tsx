@@ -17,7 +17,7 @@ export default async function TicketPage(props: TicketParams) {
     return (
       <div className="px-4 py-3">
         <div>
-          <QRCodeWrapper></QRCodeWrapper>
+          <QRCodeWrapper id={props.params.id}></QRCodeWrapper>
         </div>
         <ul className="mt-4">
           <li className="border-b-2 border-b-gray-200 p-1 flex justify-between">

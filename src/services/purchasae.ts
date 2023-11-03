@@ -8,7 +8,6 @@ type PurchasesResponse = {
 
 export async function purchase() {
   const { 'restaurant-digital-token': token } = parseCookies()
-  console.log(token)
   const response = await fetch(`${API_BASE_URL}/tickets/purchases`, {
     method: 'POST',
     headers: {

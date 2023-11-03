@@ -18,16 +18,12 @@ export default function PurchaseButton() {
   return (
     <>
       <Toaster richColors></Toaster>
-      <div className="fixed bottom-0 left-0 right-0">
-        <div className="max-w-[393px] p-4 mx-auto backdrop-blur-lg">
-          <button
-            className="bg-black p-2 rounded-md text-white w-full"
-            onClick={handlePurchase}
-          >
-            Comprar Refeição
-          </button>
-        </div>
-      </div>
+      <button
+        className="bg-black p-2 rounded-md text-white w-full font-semibold"
+        onClick={handlePurchase}
+      >
+        Comprar Refeição
+      </button>
     </>
   )
 }
