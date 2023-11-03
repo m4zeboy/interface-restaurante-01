@@ -37,7 +37,7 @@ export default function Page() {
       <Toaster richColors></Toaster>
       <QrReader
         onResult={handleScan}
-        constraints={{ facingMode: 'user' }}
+        constraints={{ facingMode: { ideal: 'environment' } }}
         videoId="qr-code-scan"
         className="bg-slate-300"
       />
