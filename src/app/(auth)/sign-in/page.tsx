@@ -1,7 +1,6 @@
-import type { NextRequest } from 'next/server'
 import { SignInForm } from './components/sign-in-form'
 
-export default async function SignIn(req: NextRequest): Promise<any> {
+export default async function SignIn() {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
