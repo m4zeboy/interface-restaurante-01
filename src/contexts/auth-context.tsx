@@ -1,6 +1,6 @@
 'use client'
 import { ReactNode, createContext, useEffect, useState } from 'react'
-import { parseCookies, setCookie } from 'nookies'
+import { destroyCookie, parseCookies, setCookie } from 'nookies'
 import { useRouter } from 'next/navigation'
 import { api } from '@/services/api'
 import { TOKEN_NAME } from '@/constants/token'
@@ -19,6 +19,7 @@ type SignInType = {
 type AuthContextType = {
   isAuthenticated: boolean
   signIn: (data: SignInType) => Promise<void>
+  signOut: () => void
   user: User | null
 }
 
@@ -57,11 +58,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       setUser(user)
 
-      router.push('/home')
+      router.replace('/home')
     } catch (error) {
       console.error(error)
       throw error
     }
+  }
+
+  function signOut() {
+    destroyCookie(null, TOKEN_NAME)
+    router.replace('/')
   }
 
   return (
@@ -70,6 +76,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isAuthenticated,
         signIn,
         user,
+        signOut,
       }}
     >
       {children}
