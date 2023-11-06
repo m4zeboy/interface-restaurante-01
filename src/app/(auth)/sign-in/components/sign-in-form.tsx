@@ -11,6 +11,9 @@ export function SignInForm() {
   const { signIn } = useContext(AuthContext)
 
   const [isLoading, setIsLoading] = useState(false)
+  const isLoadingClass = isLoading
+    ? 'disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:bg-black'
+    : ''
 
   async function handleSignIn(data: any) {
     try {
@@ -79,10 +82,7 @@ export function SignInForm() {
           <button
             type="submit"
             className={`flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
-              ${isLoading
-                ? 'disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:bg-black'
-                : ''
-              }
+              ${isLoadingClass}
             `}
             disabled={isLoading}
           >

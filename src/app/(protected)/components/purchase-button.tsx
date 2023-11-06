@@ -8,6 +8,9 @@ import { Toaster, toast } from 'sonner'
 export default function PurchaseButton() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const isLoadingClass = isLoading
+    ? 'disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:bg-black'
+    : ''
   async function handlePurchase() {
     try {
       setIsLoading(true)
@@ -26,10 +29,7 @@ export default function PurchaseButton() {
       <Toaster richColors></Toaster>
       <button
         className={`bg-black p-2 rounded-md text-white w-full font-semibold flex justify-center
-        ${isLoading
-            ? 'disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:bg-black'
-            : ''
-          }`}
+        ${isLoadingClass}`}
         onClick={handlePurchase}
         disabled={isLoading}
       >
