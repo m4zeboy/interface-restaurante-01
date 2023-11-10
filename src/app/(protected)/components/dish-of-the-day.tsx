@@ -1,7 +1,7 @@
 import { getDishOfTheDay } from '@/services/get-dish-of-the-day'
 
 export default async function DishOfTheDay() {
-  const today = new Date().toLocaleDateString()
+  const today = new Date().toLocaleDateString('pt-br')
   try {
     const { data } = await getDishOfTheDay()
     const { dish } = data
@@ -15,6 +15,7 @@ export default async function DishOfTheDay() {
             <>
               <p className="text-2xl font-bold mt-2">
                 <span>{dish?.main_dish}</span>
+                <span> ou </span>
                 <span>{dish?.vegan_main_dish}</span>
               </p>
               <p className="text-slate-400 block mt-2">
