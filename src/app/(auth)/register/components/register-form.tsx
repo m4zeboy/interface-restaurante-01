@@ -1,11 +1,13 @@
 'use client'
 import { createUser } from '@/services/register'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Toaster, toast } from 'sonner'
 
 export function RegisterForm() {
   const { register, handleSubmit } = useForm()
+  const [role, setRole] = useState('USER')
   const router = useRouter()
   async function handleRegister(data: any) {
     try {
@@ -20,6 +22,7 @@ export function RegisterForm() {
       }
     }
   }
+
   return (
     <>
       <Toaster richColors position="top-center"></Toaster>
@@ -29,6 +32,99 @@ export function RegisterForm() {
         action="#"
         onSubmit={handleSubmit(handleRegister)}
       >
+        <div>
+          <label
+            htmlFor="role"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Papel
+          </label>
+          <div className="mt-2">
+            <select
+              {...register('role')}
+              id="role"
+              name="role"
+              required
+              onChange={(event) => setRole(event.target.value)}
+              className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 sm:text-sm sm:leading-6"
+            >
+              <option value="USER">Usuário comum</option>
+              <option value="STUDENT">Estudante</option>
+              <option value="UNIVERSITY_SERVER">
+                Servidor da universidade
+              </option>
+              <option value="ADMIN">Administrador</option>
+            </select>
+          </div>
+        </div>
+
+        {role === 'STUDENT' && (
+          <>
+            <div>
+              <label
+                htmlFor="rga"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                RGA
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register('rga')}
+                  id="rga"
+                  name="rga"
+                  type="text"
+                  autoComplete="rga"
+                  required
+                  className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="uniqueRegister"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                CAD Único
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register('uniqueRegister')}
+                  id="uniqueRegister"
+                  name="uniqueRegister"
+                  type="text"
+                  autoComplete="uniqueRegister"
+                  required
+                  className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          </>
+        )}
+        {role === 'UNIVERSITY_SERVER' && (
+          <>
+            <div>
+              <label
+                htmlFor="siape"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                SIAPE
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register('siape')}
+                  id="siape"
+                  name="siape"
+                  type="text"
+                  autoComplete="siape"
+                  required
+                  className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          </>
+        )}
+
         <div>
           <label
             htmlFor="name"
@@ -54,7 +150,9 @@ export function RegisterForm() {
             htmlFor="email"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
-            Passaporte
+            {role === 'STUDENT' || role === 'UNIVERSITY_SERVER'
+              ? 'Passaporte'
+              : 'E-mail'}
           </label>
           <div className="mt-2">
             <input
@@ -66,31 +164,6 @@ export function RegisterForm() {
               required
               className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 sm:text-sm sm:leading-6"
             />
-          </div>
-        </div>
-
-        <div>
-          <label
-            htmlFor="role"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Papel
-          </label>
-          <div className="mt-2">
-            <select
-              {...register('role')}
-              id="role"
-              name="role"
-              required
-              className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-400 sm:text-sm sm:leading-6"
-            >
-              <option value="USER">Usuário comum</option>
-              <option value="STUDENT">Estudante</option>
-              <option value="UNIVERSITY_SERVER">
-                Servidor da universidade
-              </option>
-              <option value="ADMIN">Administrador</option>
-            </select>
           </div>
         </div>
 

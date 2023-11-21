@@ -6,6 +6,9 @@ export type RegisterRequestBody = {
   passport: string
   password: string
   role: 'ADMIN' | 'USER' | 'STUDENT' | 'UNIVERSITY_SERVER'
+  rga?: string
+  uniqueRegister?: string
+  siape?: string
 }
 
 export const createUser = async (body: RegisterRequestBody) => {
