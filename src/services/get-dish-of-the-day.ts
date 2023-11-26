@@ -1,7 +1,7 @@
 import { parseCookies } from 'nookies'
 import { api } from './api'
 
-type Dish = {
+export type Dish = {
   id: string
   main_dish: string
   vegan_main_dish: string

@@ -1,9 +1,9 @@
-import Balance from '../components/balance'
-import DishOfTheDay from '../components/dish-of-the-day'
-import Header from '../components/header'
-import PurchaseButton from '../components/purchase-button'
-import PurchasesHistory from '../components/purchases-history'
-import ValidateButton from '../components/validate-button'
+import Balance from '../../components/balance'
+import DishOfTheDay from '../../components/dish-of-the-day'
+import Header from '../../components/header'
+import PurchaseButton from '../../components/purchase-button'
+import PurchasesHistory from '../../components/purchases-history'
+import ValidateButton from '../../components/validate-button'
 
 export default function Protected() {
   return (
