@@ -1,5 +1,5 @@
 'use client'
-import { IsLoadingSpinner } from '@/app/(auth)/sign-in/components/is-loading-spinner'
+import { IsLoadingSpinner } from '@/app/components/is-loading-spinner'
 import { purchase } from '@/services/purchasae'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

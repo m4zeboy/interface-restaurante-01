@@ -1,6 +1,6 @@
 import { getTicket } from '@/services/get-ticket'
 import { AxiosError } from 'axios'
-import { QRCodeWrapper } from '../components/qr-code-wrapper'
+import { QRCodeWrapper } from '../../../../components/qr-code-wrapper'
 import { Ticket } from '@/services/list-purchases'
 
 interface TicketParams {
