@@ -17,9 +17,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} bg-primary min-h-screen min-w-screen`}
-      >
+      <body className={`${inter.className} bg-primary min-w-screen`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
