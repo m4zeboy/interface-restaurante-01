@@ -11,6 +11,6 @@ export default async function ProtectedLayout({
   if (!token) {
     redirect('/sign-in')
   } else {
-    return <div className="bg-slate-50">{children}</div>
+    return <div className="bg-slate-50 min-h-screen">{children}</div>
   }
 }

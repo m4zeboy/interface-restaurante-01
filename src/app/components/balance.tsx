@@ -1,7 +1,7 @@
 import { getBalance } from '@/services/get-balance'
 import { AxiosError } from 'axios'
 import Link from 'next/link'
-import { toast } from 'sonner'
+// import { toast } from 'sonner'
 
 export default async function Balance() {
   let formattedBalance = null
@@ -13,7 +13,7 @@ export default async function Balance() {
     }).format(response?.data.balance)
   } catch (error) {
     if (error instanceof AxiosError) {
-      toast.error(error.response?.data.message)
+      // toast.error(error.response?.data.message)
     }
   }
 
@@ -22,7 +22,10 @@ export default async function Balance() {
       <section className="p-4 bg-white rounded-md">
         <h2 className="uppercase text-xs font-semibold">Saldo total</h2>
         <p className="text-2xl font-bold mt-2">{formattedBalance || '-'}</p>
-        <Link href="/recharge" className="text-slate-400 block mt-2">
+        <Link
+          href="/recharge"
+          className="px-2 px-1 rounded-full bg-black text-white inline-block mt-2 text-xs"
+        >
           + Carregar Carteira
         </Link>
       </section>

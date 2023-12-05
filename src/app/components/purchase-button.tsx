@@ -4,6 +4,7 @@ import { purchase } from '@/services/purchasae'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Toaster, toast } from 'sonner'
+import { primaryBtn } from '../styles'
 
 export default function PurchaseButton() {
   const [isLoading, setIsLoading] = useState(false)
@@ -28,7 +29,7 @@ export default function PurchaseButton() {
     <>
       <Toaster richColors></Toaster>
       <button
-        className={`bg-black p-2 rounded-md text-white w-full font-semibold flex justify-center
+        className={`${primaryBtn}
         ${isLoadingClass}`}
         onClick={handlePurchase}
         disabled={isLoading}
